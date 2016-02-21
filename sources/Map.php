@@ -36,7 +36,7 @@ class Map implements WriteableMapInterface
     public function __construct(array $values = [])
     {
         foreach ($values as $name => $value) {
-            $this->set($name, $value);
+            $this->set((string) $name, $value);
         }
     }
 
