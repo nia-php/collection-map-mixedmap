@@ -24,6 +24,8 @@ class MapTest extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->map = new Map([
+            '123' => '123',
+            '456',
             'foo' => 123,
             'bar' => '456'
         ]);
@@ -39,6 +41,8 @@ class MapTest extends PHPUnit_Framework_TestCase
      */
     public function testHas()
     {
+        $this->assertSame(true, $this->map->has('123'));
+        $this->assertSame(true, $this->map->has('124'));
         $this->assertSame(true, $this->map->has('foo'));
         $this->assertSame(true, $this->map->has('bar'));
         $this->assertSame(false, $this->map->has('baz'));
@@ -49,6 +53,8 @@ class MapTest extends PHPUnit_Framework_TestCase
      */
     public function testGet()
     {
+        $this->assertSame('123', $this->map->get('123'));
+        $this->assertSame('456', $this->map->get('124'));
         $this->assertSame(123, $this->map->get('foo'));
         $this->assertSame('456', $this->map->get('bar'));
     }
@@ -68,6 +74,8 @@ class MapTest extends PHPUnit_Framework_TestCase
      */
     public function testTryGet()
     {
+        $this->assertSame('123', $this->map->tryGet('123', 'bla'));
+        $this->assertSame('456', $this->map->tryGet('124', 'bla'));
         $this->assertSame(123, $this->map->tryGet('foo', 'bla'));
         $this->assertSame('456', $this->map->tryGet('bar', 'bla'));
         $this->assertSame('bla', $this->map->tryGet('baz', 'bla'));
@@ -113,6 +121,8 @@ class MapTest extends PHPUnit_Framework_TestCase
     public function testGetIterator()
     {
        $values = [
+            123 => '123',
+            124 => '456',
             'foo' => 123,
             'bar' => '456'
         ];
