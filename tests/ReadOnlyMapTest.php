@@ -10,14 +10,14 @@
 declare(strict_types = 1);
 namespace Test\Nia\Collection\Map\MixedMap;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Nia\Collection\Map\MixedMap\Map;
 use Nia\Collection\Map\MixedMap\ReadOnlyMap;
 
 /**
  * Unit test for \Nia\Collection\Map\MixedMap\ReadOnlyMap.
  */
-class ReadOnlyMapTest extends PHPUnit_Framework_TestCase
+class ReadOnlyMapTest extends TestCase
 {
 
     private $map = null;
@@ -59,7 +59,7 @@ class ReadOnlyMapTest extends PHPUnit_Framework_TestCase
      */
     public function testGetException()
     {
-        $this->setExpectedException(\OutOfBoundsException::class, 'Value "baz" is not set.');
+        $this->expectException(\OutOfBoundsException::class, 'Value "baz" is not set.');
 
         $this->map->get('baz');
     }
