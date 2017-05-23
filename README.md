@@ -2,6 +2,11 @@
 
 Mixed maps encapsulate a native php assoc array with non type hinted values and provides common methods.
 
+## Installation
+Require this package with Composer.
+
+    composer require nia/collection-map-mixedmap
+
 ## Tests
 To run the unit test use the following command:
 
